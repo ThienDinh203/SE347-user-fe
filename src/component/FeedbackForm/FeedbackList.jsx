@@ -41,8 +41,8 @@ const FeedbackList = ({ bookId }) => {
                                 ))}
                             </div>
                         </div>
-                        <p className="text-gray-700 text-sm">{feedback.noiDung}</p>
-                        <p className="text-gray-500 text-xs mt-1">{new Date(feedback.ngayFeedback).toLocaleDateString()}</p>
+                        {/* <p className="text-gray-700 text-sm">{feedback.noiDung}</p>
+                        <p className="text-gray-500 text-xs mt-1">{new Date(feedback.ngayFeedback).toLocaleDateString()}</p> */}
                     </div>
                 ))
             ) : (
