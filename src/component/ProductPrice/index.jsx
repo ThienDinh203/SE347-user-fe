@@ -6,10 +6,6 @@ const formatCurrency = (price) => {
     style: "currency",
     currency: "VND",
   }).format(price);
-  return new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "$",
-  }).format(price);
 };
 
 const ProductPrice = ({ price }) => {
