@@ -25,7 +25,7 @@ const Navigation = () => {
             <div className="logo">
                 <a href="/">LOGO</a>
             </div>
-            <div className="menu-toggle" onClick={toggleMenu}>
+            {/* <div className="menu-toggle" onClick={toggleMenu}>
                 <FaBars /> {/* Icon hamburger */}
             </div>
             <ul className={`menu ${menuOpen ? 'open' : ''}`}>
@@ -33,7 +33,7 @@ const Navigation = () => {
                     <a href="/">
                         <FaHome /> Trang Chủ
                     </a>
-                </li>
+                </li> */}
                 <li>
                     <a href="/introduce">
                         <FaInfoCircle /> Giới Thiệu
