@@ -22,7 +22,7 @@ function LoginPage() {
     if (username && password) {
       try {
         const response = await axios.post(
-          `${process.env.VITE_API_DOMAIN}/auth/login`,
+          "http://localhost:8080/auth/login",
           {
             username: username,
             password: password,
