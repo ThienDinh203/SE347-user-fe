@@ -12,7 +12,7 @@ const Checkout = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/cart/getgiohang/${user.id}`, {
+      .get(`${process.env.VITE_API_DOMAIN}/api/cart/getgiohang/${user.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -109,7 +109,7 @@ const Checkout = () => {
 
     try {
       axios
-        .post("http://localhost:8080/api/donhang/createdonhang", orderData, {
+        .post(`${process.env.VITE_API_DOMAIN}/api/donhang/createdonhang`, orderData, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -352,7 +352,7 @@ const Checkout = () => {
                         product.sach.photoURL
                           ? product.sach.photoURL.includes("/")
                             ? product.sach.photoURL
-                            : `http://localhost:8080/sach_image/${product.sach.photoURL}`
+                            : `${process.env.VITE_API_DOMAIN}/sach_image/${product.sach.photoURL}`
                           : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                       }
                       alt={product.sach.tieuDe}
