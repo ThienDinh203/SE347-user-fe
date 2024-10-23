@@ -7,7 +7,7 @@ function Order() {
 
   useEffect(() => {
     async function fetchOrders() {
-      fetch(`http://localhost:8080/api/donhang/getalldonhang/${user.id}`, {
+      fetch(`${process.env.VITE_API_DOMAIN}/api/donhang/getalldonhang/${user.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
