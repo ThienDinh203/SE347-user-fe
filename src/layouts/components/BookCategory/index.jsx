@@ -22,7 +22,7 @@ function BookCategory() {
 
   return (
     <div className="">
-      <div className="hidden md:block absolute bg-white z-50 shadow-lg border rounded top-16 transform -translate-x-1/2">
+      <div className="hidden md:block absolute  z-50 shadow-lg border rounded top-16 transform -translate-x-1/2">
         <ul className="">
           {categories.map((category, id) => (
             <li key={id} className="hover:bg-slate-200 cursor-pointer">

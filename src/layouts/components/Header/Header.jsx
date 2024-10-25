@@ -44,7 +44,7 @@ function Header() {
 
         <div className="fixed inset-0 z-40 flex">
           <div
-            className={`relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl ${isMobileMenuOpen
+            className={`relative flex w-full max-w-xs flex-col overflow-y-auto  pb-12 shadow-xl ${isMobileMenuOpen
               ? "transition ease-in-out duration-300 transform translate-x-0"
               : "-translate-x-full"
               }`}
@@ -157,7 +157,7 @@ function Header() {
               <div className="flex flex-1 lg:hidden">
                 <button
                   type="button"
-                  className="bg-white -ml-2 p-2 text-slate-400"
+                  className=" -ml-2 p-2 text-slate-400"
                   onClick={() => {
                     // Handle mobile menu open
                     toggleMobileMenu();
@@ -299,7 +299,7 @@ function Header() {
 
                         <div
                           onMouseLeave={() => setDropdownOpen(false)}
-                          className={`absolute right-0 mt-2 w-36 flex flex-col rounded-sm border border-stroke bg-white shadow-sm ${dropdownOpen ? "block" : "hidden"
+                          className={`absolute right-0 mt-2 w-36 flex flex-col rounded-sm border border-stroke  shadow-sm ${dropdownOpen ? "block" : "hidden"
                             }`}
                         >
                           <Link
