@@ -84,7 +84,6 @@ const AllBooks = () => {
                     key={book.id}
                     className="p-2 sm:p-4 lg:p-6 border bg-white shadow-sm relative overflow-hidden transition-transform transform hover:scale-105 hover:shadow-md"
                   >
-                    {/* Ảnh sách */}
                     <a href={`/sach/${book.id}`} className="block mb-2 sm:mb-4 lg:mb-6">
                       <img
                         src={
@@ -118,7 +117,6 @@ const AllBooks = () => {
             )}
           </div>
         </div>
-        {/*  */}
       </div>
     </div>
   );
