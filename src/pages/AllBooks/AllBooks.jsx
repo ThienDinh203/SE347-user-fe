@@ -13,7 +13,7 @@ const AllBooks = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const apiUrl = "http://localhost:8080/api/sach/getallsach";
+      const apiUrl = `${process.env.VITE_API_DOMAIN}/api/sach/getallsach`;
       try {
         const response = await Axios.get(apiUrl, {
           headers: {
@@ -34,7 +34,7 @@ const AllBooks = () => {
 
   const handleSearch = async () => {
     if (searchQuery.trim() !== "") {
-      const searchUrl = `http://localhost:8080/api/sach/timsachtheotieude/${searchQuery}`;
+      const searchUrl = `${process.env.VITE_API_DOMAIN}/api/sach/timsachtheotieude/${searchQuery}`;
       setLoading(true);
       try {
         const response = await Axios.get(searchUrl, {
@@ -91,7 +91,7 @@ const AllBooks = () => {
                           book.photoURL
                             ? book.photoURL.includes("/")
                               ? book.photoURL
-                              : `http://localhost:8080/sach_image/${book.photoURL}`
+                              : `${process.env.VITE_API_DOMAIN}/sach_image/${book.photoURL}`
                             : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                         }
                         alt={book.tieuDe}
