@@ -3,9 +3,9 @@ import BookCategory from "../BookCategory";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
-// import Breadcrumb from "../../../component/Breadcrumb";
 import { UserContext } from "../../../context/UserContext";
 import { Link } from "react-router-dom";
+
 function Header() {
   const { user, logout } = useContext(UserContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -48,7 +48,9 @@ function Header() {
               ? "transition ease-in-out duration-300 transform translate-x-0"
               : "-translate-x-full"
               }`}
-            onClick={(e) => e.target === e.currentTarget && toggleMobileMenu()}
+            onClick={
+              (e) => e.target === e.currentTarget && toggleMobileMenu()
+            }
           >
             <div className="flex px-4 pt-5 pb-2">
               <button
@@ -87,7 +89,9 @@ function Header() {
                 <div>
                   <button
                     className="-m-2 w-full text-left block p-2 font-medium text-slate-900 hover:bg-slate-100 rounded-md"
-                    onClick={() => setShowMobileCategory(!showMobileCategory)}
+                    onClick={
+                      () => setShowMobileCategory(!showMobileCategory)
+                    }
                   >
                     Danh mục
                   </button>
@@ -159,7 +163,6 @@ function Header() {
                   type="button"
                   className="bg-white -ml-2 p-2 text-slate-400"
                   onClick={() => {
-                    // Handle mobile menu open
                     toggleMobileMenu();
                   }}
                 >
@@ -188,8 +191,11 @@ function Header() {
                 />
               </Link>
               <div className="hidden lg:ml-8 lg:block lg:self-stretch">
-                {/* <div> */}
-                <div>{/* Dropdown menu component */}</div>
+                <div>
+                  <div>
+
+                  </div>
+                </div>
                 <ul className="flex h-full justify-center space-x-8">
                   <li className="flex items-center">
                     <Link
@@ -204,7 +210,6 @@ function Header() {
                     onMouseLeave={() => setShowBookCategory(false)} // Handle mouse leaving to hide the category
                   >
                     <Link
-                      // to="/"
                       onClick={() => { }}
                       className="flex items-center text-sm font-medium text-slate-700 hover:text-slate-800"
                       onMouseEnter={() => setShowBookCategory(true)} // Use a function to set the state
@@ -249,7 +254,6 @@ function Header() {
                     </Link>
                   </li>
                 </ul>
-                {/* </div> */}
               </div>
               <div className="flex flex-1 items-center justify-end lg:ml-auto">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -324,7 +328,6 @@ function Header() {
                     type="button"
                     className="p-2 text-slate-400 hover:text-slate-500"
                     onClick={() => {
-                      // Handle search open
                     }}
                   >
                     <svg
@@ -364,9 +367,6 @@ function Header() {
                         d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                       />
                     </svg>
-                    {/* <span className="ml-2 text-sm font-medium text-slate-700 group-hover:text-slate-800">
-                      0
-                    </span> */}
                   </Link>
                 </div>
               </div>
