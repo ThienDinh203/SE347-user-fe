@@ -26,7 +26,13 @@ const ProductPage = () => {
       window.location.href = "/login";
       return;
     }
-    const res = await axios.post(`${process.env.VITE_API_DOMAIN}/api/cart/addtocart`, {
+
+    if (product.soLuong < quantity) {
+      alert("Số lượng sách không đủ");
+      return;
+    }
+
+    const res = await axios.post("http://localhost:8080/api/cart/addtocart", {
       taiKhoanId: user.id,
       sachId: productId,
       soLuong: quantity
@@ -47,7 +53,7 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `${process.env.VITE_API_DOMAIN}/api/sach/getsachbyid/${productId}`, {
+          `http://localhost:8080/api/sach/getsachbyid/${productId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -74,7 +80,7 @@ const ProductPage = () => {
     }
   }, [product]);
   useEffect(() => {
-    axios.get(`${process.env.VITE_API_DOMAIN}/api/sach/getallsach`, {
+    axios.get(`http://localhost:8080/api/sach/getallsach`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -102,7 +108,7 @@ const ProductPage = () => {
                 product.photoURL
                   ? product.photoURL.includes("/")
                     ? product.photoURL
-                    : `${process.env.VITE_API_DOMAIN}/sach_image/${product.photoURL}`
+                    : `http://localhost:8080/sach_image/${product.photoURL}`
                   : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
               }
               alt=""
