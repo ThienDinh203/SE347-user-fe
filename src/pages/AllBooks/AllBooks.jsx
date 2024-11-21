@@ -57,7 +57,7 @@ const AllBooks = () => {
   };
 
   return (
-    <div className="bg-white py-12">
+    <div className=" py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between mb-6">
           <input
@@ -86,7 +86,7 @@ const AllBooks = () => {
                 {books.map((book) => (
                   <div
                     key={book.id}
-                    className="hover:-top-4 hover:-left-4 hover:p-8 hover:w-[calc(100%+32px)] hover:z-10 hover:-mb-[33px]  p-4 border border-collapse bg-white hover:shadow-md overflow-hidden relative"
+                    className="hover:-top-4 hover:-left-4 hover:p-8 hover:w-[calc(100%+32px)] hover:z-10 hover:-mb-[33px]  p-4 border border-collapse  hover:shadow-md overflow-hidden relative"
                   >
                     <div className="group">
                       <a
@@ -109,7 +109,7 @@ const AllBooks = () => {
                         <div className="absolute inset-0 flex flex-col items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="flex flex-col pt-5">
                             <div
-                              className="bg-white bg-opacity-50 rounded-full p-2 cursor-pointer"
+                              className=" bg-opacity-50 rounded-full p-2 cursor-pointer"
                               title="Xem nhanh"
                               onMouseEnter={() => setTooltipText("Xem nhanh")}
                               onMouseLeave={() => setTooltipText("")}
@@ -133,7 +133,7 @@ const AllBooks = () => {
                               )}
                             </div>
                             <div
-                              className="bg-white bg-opacity-50 rounded-full p-2 cursor-pointer"
+                              className=" bg-opacity-50 rounded-full p-2 cursor-pointer"
                               title="Add to wishlist"
                               onMouseEnter={() =>
                                 setTooltipText("Add to wishlist")
@@ -158,7 +158,7 @@ const AllBooks = () => {
                               )}
                             </div>
                           </div>
-                          <div className="relative bg-white bg-opacity-50 rounded-full p-4 pb-8 cursor-pointer">
+                          <div className="relative  bg-opacity-50 rounded-full p-4 pb-8 cursor-pointer">
                             <svg
                               className="h-6 w-6 text-slate-800 hover:text-blue-600"
                               xmlns="http://www.w3.org/2000/svg"

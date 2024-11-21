@@ -33,7 +33,7 @@ function Order() {
           >
             Đơn hàng đã đặt
           </h1>
-          {orders.map((order) => (<div key={order.id} className="border-t border-b border-slate-200 bg-white shadow-sm sm:rounded-lg sm:border">
+          {orders.map((order) => (<div key={order.id} className="border-t border-b border-slate-200  shadow-sm sm:rounded-lg sm:border">
             <div
               className="flex items-center border-b border-slate-200 p-4 sm:grid sm:grid-cols-4 sm:gap-x-6 sm:p-6"
             >
@@ -62,7 +62,7 @@ function Order() {
                 <div className="relative">
 
                   <div>
-                    <div className="rounded-md ring-1 ring-slate-900/10 py-1 bg-white">
+                    <div className="rounded-md ring-1 ring-slate-900/10 py-1 ">
                       <a
                         className="block px-4 py-2 text-sm leading-5 text-slate-700 hover:bg-slate-100 focus:outline-none focus:bg-slate-100"
                         href={`/don-hang/${order.id}`}

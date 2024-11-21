@@ -153,7 +153,7 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-lg p-6 overflow-hidden">
+        <div className=" rounded-lg p-6 overflow-hidden">
           <div className="border-b border-gray-200">
             <nav className="-mb-px flex space-x-6">
               <button
@@ -178,7 +178,7 @@ const ProductPage = () => {
           </div>
           {activeTab === "description" && (
             <div className="mt-6">
-              <div className="bg-white overflow-hidden">
+              <div className=" overflow-hidden">
                 <p className="text-gray-700 mb-4">{product.moTa}</p>
               </div>
             </div>

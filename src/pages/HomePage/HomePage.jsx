@@ -7,7 +7,7 @@ function HomePage() {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 flex">
         <div className="">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -22,7 +22,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-8 lg:gap-x-8">
             <div className="sm:row-start-2 sm:col-start-1">
-              <div className="bg-white p-6 rounded-lg shadow">
+              <div className=" p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">
                   Vận chuyển miễn phí
                 </h3>
@@ -32,7 +32,7 @@ function HomePage() {
               </div>
             </div>
             <div className="sm:row-start-2 sm:col-start-2">
-              <div className="bg-white p-6 rounded-lg shadow">
+              <div className=" p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">
                   Thanh toán an toàn
                 </h3>
@@ -42,7 +42,7 @@ function HomePage() {
               </div>
             </div>
             <div className="sm:row-start-1 sm:col-start-1">
-              <div className="bg-white p-6 rounded-lg shadow">
+              <div className=" p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">
                   Đổi trả dễ dàng
                 </h3>
@@ -52,7 +52,7 @@ function HomePage() {
               </div>
             </div>
             <div className="sm:row-start-1 sm:col-start-2">
-              <div className="bg-white p-6 rounded-lg shadow">
+              <div className=" p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">
                   Hỗ trợ 24/7
                 </h3>
@@ -65,7 +65,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="bg-white">
+      <div className="">
         {books && (
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-10">
