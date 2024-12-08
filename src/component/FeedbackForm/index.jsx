@@ -34,7 +34,7 @@ const FeedbackForm = ({ user }) => {
     };
 
     return (
-        <div className="mx-auto bg-white shadow-md rounded-lg p-6">
+        <div className="mx-auto  shadow-md rounded-lg p-6">
             <form onSubmit={handleSubmit}>
                 <div className="">
                     <label htmlFor="feedback" className="block text-gray-700 font-medium mb-2">Phản hồi của bạn</label>
