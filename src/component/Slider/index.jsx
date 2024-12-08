@@ -88,7 +88,7 @@ const BookSlider = ({ books }) => {
       {books.map((book) => (
         <div
           key={book.id}
-          className="bg-white rounded-lg shadow-md overflow-hidden"
+          className=" rounded-lg shadow-md overflow-hidden"
         >
           {" "}
           <div className="p-6">

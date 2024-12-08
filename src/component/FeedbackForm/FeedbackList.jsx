@@ -26,7 +26,7 @@ const FeedbackList = ({ bookId }) => {
     }, [bookId]);
 
     return (
-        <div className="mx-auto bg-white shadow-md rounded-lg p-4">
+        <div className="mx-auto  shadow-md rounded-lg p-4">
             {feedbacks.length > 0 ? (
                 feedbacks.map((feedback) => (
                     <div key={feedback.id} className="mb-2 p-2 border rounded-lg">
