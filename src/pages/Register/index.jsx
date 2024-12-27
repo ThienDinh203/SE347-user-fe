@@ -19,7 +19,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.VITE_API_DOMAIN}/auth/register-user`,
+        "http://localhost:8080/auth/register-user",
         formData
       );
 
@@ -32,7 +32,6 @@ const Register = () => {
         throw new Error("Registration failed: Unexpected response");
       }
     } catch (error) {
-      console.error("Đăng ký thất bại:", error.message);
       alert("Đăng ký thất bại. Hãy thử lại sau.");
     }
   };
