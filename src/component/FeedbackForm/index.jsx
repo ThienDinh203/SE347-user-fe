@@ -10,7 +10,7 @@ const FeedbackForm = ({ user }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const apiurl = "http://localhost:8080/api/feedback/taofeedback/" + user.id + "/" + productId;
+        const apiurl = `${process.env.VITE_API_DOMAIN}/api/feedback/taofeedback/` + user.id + "/" + productId;
         console.log(apiurl);
         const res = await Axios.post(apiurl,
             {

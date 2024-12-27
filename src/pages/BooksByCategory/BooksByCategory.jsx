@@ -26,7 +26,7 @@ const BooksByCategoryPage = () => {
   useEffect(() => {
     const fetchBooks = () => {
       const apiUrl =
-        `http://localhost:8080/api/sach/getbydanhmucphantrang/` +
+        `${process.env.VITE_API_DOMAIN}/api/sach/getbydanhmucphantrang/` +
         category +
         "/" +
         page;
@@ -48,7 +48,7 @@ const BooksByCategoryPage = () => {
   const handlePageClick = (event) => {
     setPage(+event.selected + 1);
     const apiUrl =
-      `http://localhost:8080/api/sach/getbydanhmucphantrang/` +
+      `${process.env.VITE_API_DOMAIN}/api/sach/getbydanhmucphantrang/` +
       category +
       "/" +
       (+event.selected + 1);
@@ -67,7 +67,7 @@ const BooksByCategoryPage = () => {
 
   const locSanPham = () => {
     const res = Axios.get(
-      `http://localhost:8080/api/sach/loctheogia/${price.at(0)}-${price.at(
+      `${process.env.VITE_API_DOMAIN}/api/sach/loctheogia/${price.at(0)}-${price.at(
         1
       )}/${category}`, {
       headers: {
@@ -139,7 +139,7 @@ const BooksByCategoryPage = () => {
                               book.photoURL
                                 ? book.photoURL.includes("/")
                                   ? book.photoURL
-                                  : `http://localhost:8080/sach_image/${book.photoURL}`
+                                  : `${process.env.VITE_API_DOMAIN}/sach_image/${book.photoURL}`
                                 : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                             }
                             alt={book.tieuDe}

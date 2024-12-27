@@ -19,7 +19,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/register-user",
+        `${process.env.VITE_API_DOMAIN}/auth/register-user`,
         formData
       );
 
