@@ -66,7 +66,7 @@ const AuthorSlider = ({ authors }) => {
                   author.image
                     ? author.image.includes("/")
                       ? author.image
-                      : `http://localhost:8080/tg_image/${author.image}`
+                      : `${process.env.VITE_API_DOMAIN}/tg_image/${author.image}`
                     : "https://bizweb.dktcdn.net/100/363/455/articles/blank-author-33728236-0ca7-4f4e-a265-ddcd14036f53.jpg?v=1705287921247"
                 }
                 alt={author.tenTacGia}
@@ -100,7 +100,7 @@ const BookSlider = ({ books }) => {
                   book.photoURL
                     ? book.photoURL.includes("/")
                       ? book.photoURL
-                      : `http://localhost:8080/sach_image/${book.photoURL}`
+                      : `${process.env.VITE_API_DOMAIN}/sach_image/${book.photoURL}`
                     : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                 }
               />

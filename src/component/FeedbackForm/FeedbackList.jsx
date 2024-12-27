@@ -10,7 +10,7 @@ const FeedbackList = ({ bookId }) => {
     useEffect(() => {
         const fetchFeedbacks = async () => {
             try {
-                const res = await Axios.get(`http://localhost:8080/api/feedback/layfeedbacktheosach/${bookId}`, {
+                const res = await Axios.get(`${process.env.VITE_API_DOMAIN}/api/feedback/layfeedbacktheosach/${bookId}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${user.token}`

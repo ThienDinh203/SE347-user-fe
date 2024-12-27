@@ -8,7 +8,7 @@ const CategoryBreadcrumb = () => {
   const { user } = useContext(UserContext);
   const [breadcrumbs, setBreadCrumbs] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:8080/api/danhmuc/getalldanhmuc", {
+    Axios.get(`${process.env.VITE_API_DOMAIN}/api/danhmuc/getalldanhmuc`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
