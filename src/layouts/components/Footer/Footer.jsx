@@ -8,7 +8,9 @@ const Footer = () => {
           <div className="flex flex-col">
             <div className="flex items-end -mx-2 mb-2">
               <img src="/public/book-store1.png" alt="" className="w-16 transform -scale-x-100" />
-              <h3 className="font-semibold italic pb-2 text-sky-700">Mỗi cuốn sách là một thế giới</h3>
+              <h3 className="font-semibold italic pb-2 text-sky-700">
+                Mỗi cuốn sách là một thế giới
+              </h3>
             </div>
             <a>
               <i className="fa-solid fa-location-dot w-5"></i>&nbsp;Khu phố 6,
@@ -16,13 +18,16 @@ const Footer = () => {
             </a>
             <a>
               <i className="fa-solid fa-envelope w-5"></i>
-              &nbsp;somebody@gmail.com
+              &nbsp;cong171002@gmail.com
             </a>
             <a>
-              <i className="fa-solid fa-phone w-5"></i>&nbsp;111-222-333-4
+              <i className="fa-solid fa-phone w-5">
+              </i>
+              &nbsp;111-222-333-4
             </a>
             <a>
-              <i className="fa-solid fa-mobile w-5"></i>&nbsp;011-122-233-4
+              <i className="fa-solid fa-mobile w-5"></i>
+              &nbsp;011-122-233-4
             </a>
           </div>
 
@@ -34,9 +39,12 @@ const Footer = () => {
               <a href="">Đơn hàng</a>
             </div>
           </div>
+
         </div>
-        {/* </div> */}
+
       </div>
+
+
     </footer>
   );
 };
