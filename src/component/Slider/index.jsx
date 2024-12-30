@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -60,13 +60,12 @@ const AuthorSlider = ({ authors }) => {
           <div className="flex flex-col items-center">
             <a href={`/tac-gia/${author.id}`}>
               <img
-                // inline-block
                 className="flex items-center h-48 w-48 rounded-full ring-2 ring-white object-cover"
                 src={
                   author.image
                     ? author.image.includes("/")
                       ? author.image
-                      : `${process.env.VITE_API_DOMAIN}/tg_image/${author.image}`
+                      : `http://localhost:8080/tg_image/${author.image}`
                     : "https://bizweb.dktcdn.net/100/363/455/articles/blank-author-33728236-0ca7-4f4e-a265-ddcd14036f53.jpg?v=1705287921247"
                 }
                 alt={author.tenTacGia}
@@ -88,10 +87,9 @@ const BookSlider = ({ books }) => {
       {books.map((book) => (
         <div
           key={book.id}
-          className=" rounded-lg shadow-md overflow-hidden"
+          className="bg-white rounded-lg shadow-md overflow-hidden"
         >
-          {" "}
-          <div className="p-6">
+          <div className="p-4 sm:p-6 w-full">
             <a href={"/sach/" + book.id} className="">
               <img
                 className="h-80 w-full object-cover"
@@ -100,19 +98,23 @@ const BookSlider = ({ books }) => {
                   book.photoURL
                     ? book.photoURL.includes("/")
                       ? book.photoURL
-                      : `${process.env.VITE_API_DOMAIN}/sach_image/${book.photoURL}`
+                      : `http://localhost:8080/sach_image/${book.photoURL}`
                     : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                 }
               />
             </a>
-            <a
-              href={"/sach/" + book.id}
-              className="mt-4 text-lg font-medium text-gray-900"
-            >
-              {book.tieuDe}
-            </a>
+            <div className="h-16">
+              <a
+                href={"/sach/" + book.id}
+                className="mt-4 text-lg font-medium text-gray-900"
+              >
+                {book.tieuDe}
+              </a>
+            </div>
             <p className="mt-2 text-md text-blue-500 font-bold">{book.gia}</p>
           </div>
+          {/* ============= */}
+
         </div>
       ))}
     </Slider>

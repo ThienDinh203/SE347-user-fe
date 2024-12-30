@@ -5,7 +5,6 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 import { UserContext } from "../../../context/UserContext";
 import { Link } from "react-router-dom";
-
 function Header() {
   const { user, logout } = useContext(UserContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -15,7 +14,7 @@ function Header() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    Axios.get(`${process.env.VITE_API_DOMAIN}/api/danhmuc/getalldanhmuc`, {
+    Axios.get("http://localhost:8080/api/danhmuc/getalldanhmuc", {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
@@ -48,9 +47,7 @@ function Header() {
               ? "transition ease-in-out duration-300 transform translate-x-0"
               : "-translate-x-full"
               }`}
-            onClick={
-              (e) => e.target === e.currentTarget && toggleMobileMenu()
-            }
+            onClick={(e) => e.target === e.currentTarget && toggleMobileMenu()}
           >
             <div className="flex px-4 pt-5 pb-2">
               <button
@@ -89,9 +86,7 @@ function Header() {
                 <div>
                   <button
                     className="-m-2 w-full text-left block p-2 font-medium text-slate-900 hover:bg-slate-100 rounded-md"
-                    onClick={
-                      () => setShowMobileCategory(!showMobileCategory)
-                    }
+                    onClick={() => setShowMobileCategory(!showMobileCategory)}
                   >
                     Danh mục
                   </button>
@@ -104,7 +99,7 @@ function Header() {
                       {categories.map((category, index) => (
                         <li key={index}>
                           <Link
-                            to={category.id}
+                            to={`/${category.id}`}
                             className="block p-3 hover:bg-slate-100 rounded-md"
                           >
                             {category.tenDanhMuc}
@@ -133,7 +128,7 @@ function Header() {
               </div>
             </div>
 
-            <div className="space-y-6 border-t border-slate-200 py-6 px-4">
+            {/* <div className="space-y-6 border-t border-slate-200 py-6 px-4">
               <div className="flow-root">
                 <Link
                   to="/login"
@@ -150,6 +145,75 @@ function Header() {
                   Tạo tài khoản
                 </Link>
               </div>
+            </div> */}
+
+            <div className="space-y-6 border-t py-6 px-4">
+              {!user.auth ? (
+                <>
+                  <div className="flow-root">
+                    <Link
+                      to="/login"
+                      className="-m-2 block p-2 font-medium text-slate-900 hover:bg-slate-100 rounded-md"
+                    >
+                      Đăng nhập
+                    </Link>
+                  </div>
+
+                  {/* Tạo tài khoản */}
+                  <div className="flow-root">
+                    <Link
+                      to="/register"
+                      className="-m-2 block p-2 font-medium text-slate-900 hover:bg-slate-100 rounded-md"
+                    >
+                      Tạo tài khoản
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Thông tin người dùng */}
+                  <div className="flow-root">
+                    <button
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="w-full flex justify-between items-center p-2 font-medium text-slate-900 hover:bg-slate-100 rounded-md"
+                    >
+                      <span>{user.userName}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                        viewBox="0 0 12 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M0.410765 0.910734C0.736202 0.585297 1.26384 0.585297 1.58928 0.910734L6.00002 5.32148L10.4108 0.910734C10.7362 0.585297 11.2638 0.585297 11.5893 0.910734C11.9147 1.23617 11.9147 1.76381 11.5893 2.08924L6.58928 7.08924C6.26384 7.41468 5.7362 7.41468 5.41077 7.08924L0.410765 2.08924C0.0853277 1.76381 0.0853277 1.23617 0.410765 0.910734Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Dropdown cho mobile */}
+                    {dropdownOpen && (
+                      <div className="mt-2 space-y-2 rounded-md border border-slate-200 bg-white shadow-md">
+                        <Link
+                          to="/don-hang"
+                          className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                        >
+                          Xem đơn hàng
+                        </Link>
+                        <button
+                          onClick={logout}
+                          className="block w-full text-left px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                        >
+                          Đăng xuất
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -163,6 +227,7 @@ function Header() {
                   type="button"
                   className="bg-white -ml-2 p-2 text-slate-400"
                   onClick={() => {
+                    // Handle mobile menu open
                     toggleMobileMenu();
                   }}
                 >
@@ -191,11 +256,8 @@ function Header() {
                 />
               </Link>
               <div className="hidden lg:ml-8 lg:block lg:self-stretch">
-                <div>
-                  <div>
-
-                  </div>
-                </div>
+                {/* <div> */}
+                <div>{/* Dropdown menu component */}</div>
                 <ul className="flex h-full justify-center space-x-8">
                   <li className="flex items-center">
                     <Link
@@ -210,6 +272,7 @@ function Header() {
                     onMouseLeave={() => setShowBookCategory(false)} // Handle mouse leaving to hide the category
                   >
                     <Link
+                      // to="/"
                       onClick={() => { }}
                       className="flex items-center text-sm font-medium text-slate-700 hover:text-slate-800"
                       onMouseEnter={() => setShowBookCategory(true)} // Use a function to set the state
@@ -254,6 +317,7 @@ function Header() {
                     </Link>
                   </li>
                 </ul>
+                {/* </div> */}
               </div>
               <div className="flex flex-1 items-center justify-end lg:ml-auto">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -323,37 +387,13 @@ function Header() {
                     </>
                   )}
                 </div>
-                <div className="flex lg:ml-6">
-                  <button
-                    type="button"
-                    className="p-2 text-slate-400 hover:text-slate-500"
-                    onClick={() => {
-                    }}
-                  >
-                    <svg
-                      className="h-6 w-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                      />
-                    </svg>
-                  </button>
-                </div>
                 <div className="ml-4 flow-root lg:ml-6">
                   <Link
                     to="/gio-hang"
                     className="group -m-2 flex items-center p-2"
                   >
                     <svg
-                      className="h-6 w-6 flex-shrink-0 text-slate-400 group-hover:text-slate-500"
+                      className="h-6 w-6 flex-shrink-0 text-slate-400"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -367,6 +407,9 @@ function Header() {
                         d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                       />
                     </svg>
+                    {/* <span className="ml-2 text-sm font-medium text-slate-700 group-hover:text-slate-800">
+                      0
+                    </span> */}
                   </Link>
                 </div>
               </div>

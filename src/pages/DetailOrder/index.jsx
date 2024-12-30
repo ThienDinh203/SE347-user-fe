@@ -14,7 +14,7 @@ const DetailOrder = () => {
       try {
         const [orderItemsResponse, orderResponse] = await Promise.all([
           axios.get(
-            `${process.env.VITE_API_DOMAIN}/api/chitietdonhang/getall/${orderId}`, {
+            `http://localhost:8080/api/chitietdonhang/getall/${orderId}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${user.token}`
@@ -22,7 +22,7 @@ const DetailOrder = () => {
           }
           ),
           axios.get(
-            `${process.env.VITE_API_DOMAIN}/api/donhang/getthongtindonhang/${orderId}`, {
+            `http://localhost:8080/api/donhang/getthongtindonhang/${orderId}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${user.token}`
@@ -98,7 +98,7 @@ const DetailOrder = () => {
                       item.sach.photoURL
                         ? item.sach.photoURL.includes("/")
                           ? item.sach.photoURL
-                          : `${process.env.VITE_API_DOMAIN}/sach_image/${item.sach.photoURL}`
+                          : `http://localhost:8080/sach_image/${item.sach.photoURL}`
                         : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                     }
                   />

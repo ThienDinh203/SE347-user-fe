@@ -6,7 +6,7 @@ function BookCategory() {
   const [categories, setCategories] = useState([]);
   const user = useContext(UserContext);
   useEffect(() => {
-    Axios.get(`${process.env.VITE_API_DOMAIN}/api/danhmuc/getalldanhmuc`, {
+    Axios.get("http://localhost:8080/api/danhmuc/getalldanhmuc", {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
