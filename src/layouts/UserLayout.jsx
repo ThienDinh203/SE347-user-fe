@@ -9,6 +9,7 @@ function UserLayout({ children }) {
       {/* {children} */}
       <Outlet />
       <Footer />
+
     </div>
   );
 }

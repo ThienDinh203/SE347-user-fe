@@ -15,7 +15,7 @@ const DetailAuthorPage = () => {
     const fetchAuthors = async () => {
       try {
         const response = await fetch(
-          `${process.env.VITE_API_DOMAIN}/api/tacgia/getTacGia/${authorId}`, {
+          `http://localhost:8080/api/tacgia/getTacGia/${authorId}`, {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
@@ -38,7 +38,7 @@ const DetailAuthorPage = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.VITE_API_DOMAIN}/api/sach/getsachbytacgia/${authorId}`, {
+      .get(`http://localhost:8080/api/sach/getsachbytacgia/${authorId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -67,7 +67,7 @@ const DetailAuthorPage = () => {
                   author.image
                     ? author.image.includes("/")
                       ? author.image
-                      : `${process.env.VITE_API_DOMAIN}/tg_image/${author.image}`
+                      : `http://localhost:8080/tg_image/${author.image}`
                     : "https://bizweb.dktcdn.net/100/363/455/articles/blank-author-33728236-0ca7-4f4e-a265-ddcd14036f53.jpg?v=1705287921247"
                 }
                 alt={author.tenTacGia}

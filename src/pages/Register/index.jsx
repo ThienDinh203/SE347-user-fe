@@ -32,6 +32,7 @@ const Register = () => {
         throw new Error("Registration failed: Unexpected response");
       }
     } catch (error) {
+      console.error("Đăng ký thất bại:", error.message);
       alert("Đăng ký thất bại. Hãy thử lại sau.");
     }
   };

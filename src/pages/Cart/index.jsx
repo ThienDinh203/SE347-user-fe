@@ -9,7 +9,7 @@ function Cart() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.VITE_API_DOMAIN}/api/cart/getgiohang/${user.id}`, {
+      .get(`http://localhost:8080/api/cart/getgiohang/${user.id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -36,7 +36,7 @@ function Cart() {
     updatedCartItems[index].soLuong = newQuantity;
 
     axios
-      .put(`${process.env.VITE_API_DOMAIN}/api/cart/update/${id}`, {
+      .put(`http://localhost:8080/api/cart/update/${id}`, {
         taiKhoanId: updatedCartItems[index].taiKhoanId,
         sachId: updatedCartItems[index].sach.id,
         soLuong: newQuantity,
@@ -58,7 +58,7 @@ function Cart() {
   const handleDelete = (id) => {
     console.log(id);
     axios
-      .post(`${process.env.VITE_API_DOMAIN}/api/cart/delete/${id}`, {
+      .post(`http://localhost:8080/api/cart/delete/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${user.token}`
@@ -66,7 +66,7 @@ function Cart() {
       })
       .then((res) => {
         axios
-          .get(`${process.env.VITE_API_DOMAIN}/api/cart/getgiohang/${user.id}`, {
+          .get(`http://localhost:8080/api/cart/getgiohang/${user.id}`, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${user.token}`
@@ -136,7 +136,7 @@ function Cart() {
                             item.sach.photoURL
                               ? item.sach.photoURL.includes("/")
                                 ? item.sach.photoURL
-                                : `${process.env.VITE_API_DOMAIN}/sach_image/${item.sach.photoURL}`
+                                : `http://localhost:8080/sach_image/${item.sach.photoURL}`
                               : "https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png"
                           }
                         />
