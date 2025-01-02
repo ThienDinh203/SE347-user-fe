@@ -11,6 +11,7 @@ import Checkout from "../pages/Checkout";
 import Order from "../pages/Order";
 import DetailOrder from "../pages/DetailOrder";
 import AllBooks from "../pages/AllBooks/AllBooks";
+import ContactPage from "../pages/Contact/ContactPage";
 
 const publicRoutes = [
   {
@@ -49,7 +50,7 @@ const publicRoutes = [
   },
   {
     path: "/lien-he",
-    component: LoginPage,
+    component: ContactPage,
     breadcrumb: Breadcrumb,
     props: {
       heading: "Liên hệ",
