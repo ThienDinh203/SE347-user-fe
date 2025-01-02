@@ -12,6 +12,22 @@ const DetailAuthorPage = () => {
   const [books, setBooks] = useState();
   const { user } = useContext(UserContext);
   useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/sach/getsachbytacgia/${authorId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
+      .then((response) => {
+        setBooks(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
     const fetchAuthors = async () => {
       try {
         const response = await fetch(
@@ -36,21 +52,7 @@ const DetailAuthorPage = () => {
     fetchAuthors();
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/api/sach/getsachbytacgia/${authorId}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.token}`
-        }
-      })
-      .then((response) => {
-        setBooks(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+
 
   return (
     <div className="max-w-7xl mx-auto p-4 mt-16">
