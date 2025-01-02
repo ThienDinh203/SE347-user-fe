@@ -12,6 +12,22 @@ const DetailAuthorPage = () => {
   const [books, setBooks] = useState();
   const { user } = useContext(UserContext);
   useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/sach/getsachbytacgia/${authorId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
+      .then((response) => {
+        setBooks(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  useEffect(() => {
     const fetchAuthors = async () => {
       try {
         const response = await fetch(
@@ -36,21 +52,7 @@ const DetailAuthorPage = () => {
     fetchAuthors();
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/api/sach/getsachbytacgia/${authorId}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user.token}`
-        }
-      })
-      .then((response) => {
-        setBooks(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+
 
   return (
     <div className="max-w-7xl mx-auto p-4 mt-16">
@@ -58,10 +60,13 @@ const DetailAuthorPage = () => {
         <p>Loading...</p>
       ) : (
         <div key={author.id} className="flex flex-col items-center px-4">
+
           <div className="flex gap-8 lg:flex-row flex-col items-center">
+
             <div className="">
               <img
                 // inline-block
+
                 className="flex items-center h-64 w-64 lg:h-80 lg:w-80 rounded-full ring-2 ring-white object-cover"
                 src={
                   author.image
@@ -74,7 +79,8 @@ const DetailAuthorPage = () => {
               />
             </div>
             <div className="flex-1">
-              <h2 className="pb-4 mt-2 text-2xl font-medium text-gray-900">
+              <h2
+                className="pb-4 mt-2 text-2xl font-medium text-gray-900">
                 {author.tenTacGia}
               </h2>
               <p className="text-xl">
@@ -86,16 +92,21 @@ const DetailAuthorPage = () => {
                 nghệ lấy Tây được đăng trên báo Nhật Tân và một số những tác
                 phẩm phóng sự khác đã làm lên tên tuổi của nhà văn.
               </p>
+
             </div>
+
           </div>
         </div>
       )}
       {books && (
         <div className="py-12 mt-16 px-4 sm:px-6 lg:py-16 lg:px-8">
           <h3 className="text-xl font-medium tracking-tight text-gray-900 sm:text-3xl mb-10">
+
             Sách cùng tác giả
+
           </h3>
           <BookSlider books={books} />
+
         </div>
       )}
     </div>
