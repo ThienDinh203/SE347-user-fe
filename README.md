@@ -114,16 +114,16 @@ Clone các repository của dự án về máy tính:
 
 ---
 
-### Bước 3: Cài đặt Thư viện
+## Bước 3: Cài đặt Thư viện
 
-#### Giao diện Khách hàng và Giao diện Quản trị viên
+### Giao diện Khách hàng và Giao diện Quản trị viên
 1. Di chuyển vào thư mục chứa mã nguồn của giao diện khách hàng và giao diện quản trị viên.
 2. Trong mỗi thư mục, chạy lệnh sau:
 ```bash
 npm install
 ```
 3. Đợi khoảng 5-10 phút để tải đầy đủ các thư viện cần thiết.
-#### Backend
+### Backend
 1. Nếu sử dụng Visual Studio Code, di chuyển vào thư mục và chạy lệnh:
 ```bash
    mvn clean install
